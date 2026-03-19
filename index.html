@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makkhan Sweets Restaurant & Cake Shop</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6e0f1a;
+            --accent: #d4af37;
+            --bg: #fffaf5;
+            --text: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Updated Hero Section --- */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers full area without stretching */
+            z-index: -2;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55); /* Dark overlay to make text readable */
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: clamp(32px, 8vw, 56px); /* Responsive font size */
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            margin-bottom: 25px;
+            color: #ddd;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 8px;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* --- Rest of the Content --- */
+        .section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: var(--primary);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        } 
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 15px;
+        }
+
+        .card p {
+            padding: 0 15px 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        footer {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+        }
+
+        .whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            z-index: 2000;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 20px; }
+            nav a { margin-left: 10px; font-size: 14px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Makkhan Sweets</h1>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#shop">Shop</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="images/Shop3.jpg" alt="Makkhan Sweets Background" class="hero-img">
+        <div class="hero-content">
+            <h2>Fresh Sweets & Delicious Cakes Made Daily</h2>
+            <p>Serving Kapilvastu with premium sweets, snacks, and cakes.</p>
+            <button class="btn btn-primary" onclick="callNow()">Call Now</button>
+            <button class="btn btn-secondary">Directions</button>
+        </div>
+    </section>
+
+    <section class="section" id="menu">
+        <h2>Our Menu Highlights</h2>
+        <div class="menu-grid">
+            <div class="card"><img src="images/pizza.jpg"><h3>Pizza</h3><p>Cheesy and freshly baked.</p></div>
+            <div class="card"><img src="images/CHINESE BHEL.jpg"><h3>Chinese Bhel</h3><p>Spicy and crunchy mix.</p></div>
+            <div class="card"><img src="images/Samosa.jpg"><h3>Samosa</h3><p>Hot crispy snack.</p></div>
+            <div class="card"><img src="images/momo.jpg"><h3>Momo</h3><p>Steamed dumplings.</p></div>
+            <div class="card"><img src="images/laudoo.jpg"><h3>Ladoo</h3><p>Traditional sweet.</p></div>
+            <div class="card"><img src="images/gulaba jamuna.jpg"><h3>Gulab Jamun</h3><p>Soft syrup sweet.</p></div>
+            <div class="card"><img src="images/jalebe.jpg"><h3>Jalebi</h3><p>Sweet crispy delight.</p></div>
+            <div class="card"><img src="images/Cake.jpg"><h3>Cake</h3><p>Fresh celebration cakes.</p></div>
+            <div class="card"><img src="images/Chocolate cupcake.jpg"><h3>Cup Cake</h3><p>Soft mini cakes.</p></div>
+            <div class="card"><img src="images/Dosa.jpg"><h3>Dosa</h3><p>South Indian crispy dosa.</p></div>
+            <div class="card"><img src="images/Desserts.jpg"><h3>Desserts</h3><p>Sweet treats variety.</p></div>
+            <div class="card"><img src="images/chai.jpg"><h3>Chai</h3><p>Hot tea with snacks.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="shop" style="background: #fff; border-radius: 50px 50px 0 0;">
+        <h2>Our Shop Gallery</h2>
+        <p style="text-align:center;margin-bottom:30px;color:#666;">Experience the taste of quality.</p>
+        <div class="gallery">
+            <img src="images/shop.jpg">
+            <img src="images/Cake.jpg">
+            <img src="images/items.jpg">
+            <img src="images/Cake2.jpg">
+            <img src="images/Shop2.jpg">
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2>Visit Us</h2>
+        <div style="text-align:center; line-height: 1.8;">
+            <p><strong>Location:</strong> New haat bazar line Taulihawa-2 Kapilvastu, Nepal</p>
+            <p><strong>Phone:</strong> 076-560350</p>
+            <p><strong>Open:</strong> 7:00 AM - 9:00 PM</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Makkhan Sweets Restaurant & Cake Shop</p>
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me/97776560350">WhatsApp Us</a>
+
+    <script>
+        function callNow(){
+            window.location.href="tel:076560350";
+        }
+    </script>
+
+</body>
+</html>
